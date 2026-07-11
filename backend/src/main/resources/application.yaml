@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: programming
+  config:
+    import: optional:file:.env[.properties]
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:host}:${DB_PORT:1234}/${DB_NAME:name}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: ${JPA_DDL_AUTO:update}
+    open-in-view: false
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+
+server:
+  port: ${SERVER_PORT:8080}
+
+application:
+  security:
+    jwt:
+      secret-key: ${JWT_SECRET_KEY:jwt_secret}
+      expiration: ${JWT_ACCESS_TTL_MS:900000}
+      cookie-name: ${JWT_COOKIE_NAME:access_token}
+      refresh-token:
+        expiration: ${JWT_REFRESH_TTL_MS:604800000}
+        cookie-name: ${JWT_REFRESH_COOKIE_NAME:refresh_token}
