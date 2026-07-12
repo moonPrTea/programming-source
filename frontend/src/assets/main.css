@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+@import 'tailwindcss-primeui';
+@import 'primeicons/primeicons.css';
+
+@custom-variant dark (&:where(.p-dark, .p-dark *));
+
+body {
+    font-family: Inter, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+}
