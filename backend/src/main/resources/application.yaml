@@ -32,3 +32,6 @@ application:
       refresh-token:
         expiration: ${JWT_REFRESH_TTL_MS:604800000}
         cookie-name: ${JWT_REFRESH_COOKIE_NAME:refresh_token}
+
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173}

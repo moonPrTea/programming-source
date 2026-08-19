@@ -68,6 +68,7 @@ public class AuthenticationService {
     );
 
     UserEntity user = userRepository.findByUsername(request.username())
+            .or(() -> userRepository.findByEmail(request.username()))
             .orElseThrow(() -> new IllegalStateException("Not found user record"));
 
     return createAuthorizationResponse(user);
